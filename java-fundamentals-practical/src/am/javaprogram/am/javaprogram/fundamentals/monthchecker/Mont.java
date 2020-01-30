@@ -1,4 +1,4 @@
-package fundamentals.monthchecker;
+package am.javaprogram.fundamentals.monthchecker;
 
 import java.text.DateFormatSymbols;
 
