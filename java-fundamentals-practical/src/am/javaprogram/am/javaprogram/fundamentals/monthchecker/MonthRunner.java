@@ -1,4 +1,4 @@
-package fundamentals.monthchecker;
+package am.javaprogram.fundamentals.monthchecker;
 
 public class MonthRunner {
     public static void main(String[] args) {

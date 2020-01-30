@@ -1,4 +1,4 @@
-package fundamentals.calculatings;
+package am.javaprogram.fundamentals.calculatings;
 
 import java.util.Scanner;
 
