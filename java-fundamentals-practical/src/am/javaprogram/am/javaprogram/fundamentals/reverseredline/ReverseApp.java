@@ -1,4 +1,4 @@
-package fundamentals.reverseredline;
+package am.javaprogram.fundamentals.reverseredline;
 
 import java.util.Scanner;
 

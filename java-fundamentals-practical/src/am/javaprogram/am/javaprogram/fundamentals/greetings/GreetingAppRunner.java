@@ -1,4 +1,4 @@
-package fundamentals.greetings;
+package am.javaprogram.fundamentals.greetings;
 
 public class GreetingAppRunner {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package fundamentals.reverseredline;
+package am.javaprogram.fundamentals.reverseredline;
 
 public class ReverseAppRunner {
     public static void main(String[] args) {
