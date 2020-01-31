@@ -4,12 +4,13 @@ import java.util.Scanner;
 
 public class CalculateApp {
   private static final Scanner SCANNER = new Scanner(System.in);
-  private static final String EXIT_COMMAND = "exit";
 
+  /** run method for running calculate proces in app. */
   public void run() {
     calculateSum();
   }
 
+  /** createArrayOfInputs method create Array of inputed number */
   private int[] createArrayOfInputs() {
     System.out.println("Please  enter count of numbers");
     int countNumbers = SCANNER.nextInt();
@@ -20,6 +21,7 @@ public class CalculateApp {
     return arrayOfInputs;
   }
 
+  /** calculateSum method for getting sum of this number in array */
   private void calculateSum() {
     int[] arrayOfNumbers = createArrayOfInputs();
     int result = 0;
