@@ -5,9 +5,7 @@ public class MonthRunner {
     final var month = new Month();
     month.run();
 
-    /**
-     * Its called  from  Monts Enum
-     */
+    /** Its called from Months Enum */
     Months.printMonthNameByNumber();
   }
 }

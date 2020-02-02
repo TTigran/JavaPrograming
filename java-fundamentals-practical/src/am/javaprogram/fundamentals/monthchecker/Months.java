@@ -21,7 +21,8 @@ public enum Months {
   private static final Scanner SCANNER = new Scanner(System.in);
 
   /**
-   * for geting  Monts  name
+   * for gating Month's name
+   *
    * @param monthNumber
    */
   Months(int monthNumber) {
@@ -29,9 +30,10 @@ public enum Months {
   }
 
   /**
-   * the getMonthByNumber method for return montj's name by number
+   * the getMonthByNumber method for return month's name by number
+   *
    * @param monthNumber
-   * @return Name  of  Monts
+   * @return month
    */
   public static Months getMonthByNumber(int monthNumber) {
     final var values = Months.values();
@@ -44,7 +46,7 @@ public enum Months {
   }
 
   /** printMonthNameByNumber method for print month by number. */
-  public static void  printMonthNameByNumber() {
+  public static void printMonthNameByNumber() {
     while (SCANNER.hasNext()) {
       int monthNumber = SCANNER.nextInt();
       if (EXIT_COMMAND == monthNumber) {

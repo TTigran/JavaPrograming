@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class CalculateApp {
   private static final Scanner SCANNER = new Scanner(System.in);
 
-  /** run method for running calculate proces in app. */
+  /** run method for running calculate process in app. */
   public void run() {
     calculateSum();
   }
 
-  /** createArrayOfInputs method create Array of inputed number */
+  /** createArrayOfInputs method create Array of inputted number */
   private int[] createArrayOfInputs() {
     System.out.println("Please  enter count of numbers");
     int countNumbers = SCANNER.nextInt();

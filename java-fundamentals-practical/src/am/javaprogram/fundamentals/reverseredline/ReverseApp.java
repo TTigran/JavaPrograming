@@ -6,17 +6,16 @@ public class ReverseApp {
   private static final Scanner SCANNER = new Scanner(System.in);
   private static final String EXIT_COMMAND = "exit";
 
-  /**
-   * run method for running process ReverserApp
-   */
+  /** run method for running process ReverserApp */
   public void run() {
     printReverse();
   }
 
   /**
    * reverseString for reversing logic for app
+   *
    * @param line
-   * @return reversed  line
+   * @return result
    */
   private String reverseString(String line) {
     StringBuilder result = new StringBuilder();
@@ -26,9 +25,7 @@ public class ReverseApp {
     return result.toString();
   }
 
-  /**
-   * printReverse for  printing our reversed line
-   */
+  /** printReverse for printing our reversed line */
   private void printReverse() {
     while (SCANNER.hasNext()) {
       String line = SCANNER.nextLine();

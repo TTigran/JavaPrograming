@@ -15,23 +15,28 @@ public class RandomNumberPrinter {
 
   /** run method for running RandomApp */
   public void run() {
-    generateArrayOfRandomNumber();
+    printerArray();
   }
 
-  /** generateArrayOfRandomNumber method for generating one array of interval betwen min and max */
-  private void generateArrayOfRandomNumber() {
-    Random random = new Random();
-    System.out.println("Please enter min Number");
-    int min = SCANNER.nextInt();
-    System.out.println("Please enter max Number");
-    int max = SCANNER.nextInt();
-    int range = max - min + 1;
-    if (max < min) {
-      throw new IllegalArgumentException("Max number " + max + " smaller from  min");
-    }
+  /** getRangeByMinMax method for get Range */
+  private int getRangeByMinMax(int min, int max) {
+    Random r = new Random();
+    return r.nextInt((max - min) + 1) + min;
+  }
+
+  /** generateArrayOfRandomNumber method for generating one array of interval between min and max */
+  private int[] generateArrayOfRandomNumber() {
     for (int i = 0; i < arrayOfRandomNumber.length; i++) {
-      int randomInt = (random.nextInt() * range) + min;
-      arrayOfRandomNumber[i] = randomInt;
+      arrayOfRandomNumber[i] = getRangeByMinMax(10, 100);
+    }
+    return arrayOfRandomNumber;
+  }
+
+  /** printerArray method print generated array of random numbers */
+  private void printerArray() {
+    int[] randoms = generateArrayOfRandomNumber();
+    for (int random : randoms) {
+      System.out.println(random);
     }
   }
 }

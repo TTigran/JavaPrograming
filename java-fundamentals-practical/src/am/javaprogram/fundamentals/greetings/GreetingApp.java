@@ -6,12 +6,12 @@ public class GreetingApp {
   private static final Scanner SCANNER = new Scanner(System.in);
   private static final String EXIT_COMMAND = "exit";
 
-  /** run method for running Greeting proces. */
+  /** run method for running Greeting process. */
   public void run() {
     printGreeting();
   }
 
-  /** printGreeting method for printing sccaner by scanner. */
+  /** printGreeting method for printing scanner by scanner. */
   private void printGreeting() {
     while (SCANNER.hasNext()) {
       String user = SCANNER.nextLine();
