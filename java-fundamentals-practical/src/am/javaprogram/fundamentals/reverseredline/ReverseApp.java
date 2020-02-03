@@ -3,13 +3,20 @@ package am.javaprogram.fundamentals.reverseredline;
 import java.util.Scanner;
 
 public class ReverseApp {
-  private static final Scanner scanner = new Scanner(System.in);
+  private static final Scanner SCANNER = new Scanner(System.in);
   private static final String EXIT_COMMAND = "exit";
 
+  /** run method for running process ReverserApp */
   public void run() {
     printReverse();
   }
 
+  /**
+   * reverseString for reversing logic for app
+   *
+   * @param line
+   * @return result
+   */
   private String reverseString(String line) {
     StringBuilder result = new StringBuilder();
     for (int i = line.length() - 1; i >= 0; i--) {
@@ -18,12 +25,13 @@ public class ReverseApp {
     return result.toString();
   }
 
+  /** printReverse for printing our reversed line */
   private void printReverse() {
-    while (scanner.hasNext()) {
-      String line = scanner.nextLine();
+    while (SCANNER.hasNext()) {
+      String line = SCANNER.nextLine();
       if (EXIT_COMMAND.equalsIgnoreCase(line)) {
         System.out.println("Good By");
-        scanner.close();
+        SCANNER.close();
         break;
       } else {
         System.out.println(reverseString(line));
