@@ -1,4 +1,4 @@
-package am.javaprogram.classes.studentlist;
+package am.javaprogram.classes.studentlist.models;
 
 import java.time.LocalDate;
 
@@ -9,17 +9,16 @@ public class Student {
   private String faculty;
   private int course;
   private int group;
+  static int noOfObjects = 0;
+
+  {
+    noOfObjects += 1;
+  }
 
   public Student() {}
 
-  public Student(
-      int id,
-      String name,
-      String birth,
-      String faculty,
-      int course,
-      int group) {
-    this.id = id;
+  public Student(String name, String birth, String faculty, int course, int group) {
+    this.id = noOfObjects;
     this.name = name;
     this.birth = LocalDate.parse(birth);
     this.faculty = faculty;
@@ -77,13 +76,21 @@ public class Student {
 
   @Override
   public String toString() {
-    return "Student{" +
-            "id=" + id +
-            ", name='" + name + '\'' +
-            ", birth=" + birth +
-            ", faculty='" + faculty + '\'' +
-            ", course=" + course +
-            ", group=" + group +
-            '}';
+    return "Student{"
+        + "id="
+        + id
+        + ", name='"
+        + name
+        + '\''
+        + ", birth="
+        + birth
+        + ", faculty='"
+        + faculty
+        + '\''
+        + ", course="
+        + course
+        + ", group="
+        + group
+        + '}';
   }
 }
