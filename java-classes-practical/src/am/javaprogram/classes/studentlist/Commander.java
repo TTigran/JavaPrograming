@@ -30,6 +30,7 @@ public class Commander implements Commands {
         SCANNER.close();
         break;
       default:
+        run();
         break;
     }
   }
@@ -46,29 +47,29 @@ public class Commander implements Commands {
   }
 
   private void processFilterByFaculty() {
+    Scanner scanner = new Scanner(System.in);
     System.out.println("Running process by pear, please enter your arguments faculty ------>");
     String faculty = SCANNER.nextLine();
     Student[] studentList = studentService.getByFaculty(faculty);
     StudentService.printFilteredData(studentList);
-
   }
 
   private void processFilterByGroup() {
+    Scanner scanner = new Scanner(System.in);
     System.out.println("Running process by pear, please enter your arguments group ------>");
-    int group = SCANNER.nextInt();
+    int group = scanner.nextInt();
     Student[] studentList = studentService.getByGroup(group);
     StudentService.printFilteredData(studentList);
-
   }
 
   private void processFilterByFacultyAndCourse() {
+    Scanner scanner = new Scanner(System.in);
     System.out.println(
         "Running process by pear, please enter your arguments faculty and course ------>");
-    String facuty = SCANNER.nextLine();
-    int course = SCANNER.nextInt();
-    Student[] studentList = studentService.getByFacultyAndCourse(facuty, course);
+    String faculty = scanner.nextLine();
+    int course = scanner.nextInt();
+    Student[] studentList = studentService.getByFacultyAndCourse(faculty, course);
     StudentService.printFilteredData(studentList);
-
   }
 
   private void printCommands(){
