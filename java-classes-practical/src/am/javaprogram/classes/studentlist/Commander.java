@@ -7,12 +7,12 @@ import am.javaprogram.classes.studentlist.services.StudentService;
 import java.util.Scanner;
 
 public class Commander implements Commands {
-  public static final Scanner SCANNER = new Scanner(System.in);
   StudentService studentService = new StudentService();
 
   public void run() {
+    Scanner scanner = new Scanner(System.in);
     printCommands();
-    int command = SCANNER.nextInt();
+    int command = scanner.nextInt();
     switch (command) {
       case FILTER_BY_FACULTY:
         processFilterByFaculty();
@@ -27,7 +27,7 @@ public class Commander implements Commands {
         processFilterByYear();
         break;
       case EXIT:
-        SCANNER.close();
+        scanner.close();
         break;
       default:
         run();
@@ -36,22 +36,25 @@ public class Commander implements Commands {
   }
 
   private void processFilterByYear() {
+    Scanner scanner = new Scanner(System.in);
     System.out.println("Running process by pear, please enter your arguments year ------>");
-    int year = SCANNER.nextInt();
+    int year = scanner.nextInt();
     if (year < 2002) {
       Student[] studentList = studentService.getByOldFromTargetYear(year);
       StudentService.printFilteredData(studentList);
     } else {
       throw new IllegalArgumentException("Student cannot be for the year");
     }
+    scanner.close();
   }
 
   private void processFilterByFaculty() {
     Scanner scanner = new Scanner(System.in);
     System.out.println("Running process by pear, please enter your arguments faculty ------>");
-    String faculty = SCANNER.nextLine();
+    String faculty = scanner.nextLine();
     Student[] studentList = studentService.getByFaculty(faculty);
     StudentService.printFilteredData(studentList);
+    scanner.close();
   }
 
   private void processFilterByGroup() {
@@ -60,6 +63,7 @@ public class Commander implements Commands {
     int group = scanner.nextInt();
     Student[] studentList = studentService.getByGroup(group);
     StudentService.printFilteredData(studentList);
+    scanner.close();
   }
 
   private void processFilterByFacultyAndCourse() {
@@ -70,9 +74,10 @@ public class Commander implements Commands {
     int course = scanner.nextInt();
     Student[] studentList = studentService.getByFacultyAndCourse(faculty, course);
     StudentService.printFilteredData(studentList);
+    scanner.close();
   }
 
-  private void printCommands(){
+  private void printCommands() {
     System.out.println("EXIT -------------------------> 0");
     System.out.println("FILTER_BY_FACULTY ------------> 1");
     System.out.println("FILTER_BY_FACULTY_AND_COURSE -> 2");
