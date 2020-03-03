@@ -43,7 +43,8 @@ public class Commander implements Commands {
       Student[] studentList = studentService.getByOldFromTargetYear(year);
       StudentService.printFilteredData(studentList);
     } else {
-      throw new IllegalArgumentException("Student cannot be for the year");
+      System.out.println(year+" is not allowed: Please try again");
+      processFilterByYear();
     }
     scanner.close();
   }
