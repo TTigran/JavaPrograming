@@ -2,24 +2,29 @@ package am.javaprogram.classes.carlist.models;
 
 import java.time.LocalDate;
 
-public class Book {
+public class Car {
     private int id;
-    private String author;
-    private String namePublisher;
-    private LocalDate date;
-    static int noOfObjects = 0;
+    private String brand;
+    private String model;
+    private LocalDate yearOfIssue;
+    private int operatedYear;
+    private int price;
+    static  int noOfObjects = 0;
 
     {
         noOfObjects += 1;
     }
 
-    public Book() { }
+    public Car() {
+    }
 
-    public Book( String author, String namePublisher, String date) {
+    public Car ( String brand, String model, String yearOfIssue, int operatedYear, int price) {
         this.id = noOfObjects;
-        this.namePublisher = namePublisher;
-        this.date = LocalDate.parse(date);
-        this.author = author;
+        this.brand = brand;
+        this.model = model;
+        this.yearOfIssue = LocalDate.parse(yearOfIssue);
+        this.operatedYear = operatedYear;
+        this.price = price;
     }
 
     public int getId() {
@@ -30,37 +35,54 @@ public class Book {
         this.id = id;
     }
 
-    public String getNamePublisher() {
-        return namePublisher;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setNamePublisher(String namePublisher) {
-        this.namePublisher = namePublisher;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public String getModel() {
+        return model;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setModel(String model) {
+        this.model = model;
     }
 
-    public String getAuthor() {
-        return author;
+    public LocalDate getYearOfIssue() {
+        return yearOfIssue;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setYearOfIssue(LocalDate yearOfIssue) {
+        this.yearOfIssue = yearOfIssue;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getOperatedYear() {
+        return operatedYear;
+    }
+
+    public void setOperatedYear(int operatedYear) {
+        this.operatedYear = operatedYear;
     }
 
     @Override
     public String toString() {
-        return "Book{" +
+        return "Car{" +
                 "id=" + id +
-                ", author='" + author + '\'' +
-                ", namePublisher='" + namePublisher + '\'' +
-                ", date=" + date +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", yearOfIssue=" + yearOfIssue +
+                ", price=" + price +
                 '}';
     }
 }

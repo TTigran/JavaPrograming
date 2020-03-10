@@ -1,55 +1,54 @@
 package am.javaprogram.classes.carlist.servicess;
 
-import am.javaprogram.classes.booklist.BookGenerator;
-import am.javaprogram.classes.booklist.models.Book;
+import am.javaprogram.classes.carlist.models.Car;
+import am.javaprogram.classes.carlist.CarGenerator;
 
-public class BookService {
-    private Book[] bookData = new Book[10];
+public class CarService {
+    private Car[] carData = new Car[10];
 
-    public BookService() {
-        BookGenerator generator = new BookGenerator();
-        for (int i = 0; i < bookData.length; i++) {
-            bookData[i] = generator.generateBook();
+    public CarService() {
+        CarGenerator generator = new CarGenerator();
+        for (int i = 0; i < carData.length; i++) {
+            carData[i] = generator.generateCar();
         }
     }
 
-    public void printData(Book[] array) {
-        for (Book book : array) {
-            if (book != null) {
-                System.out.println(book.toString());
+    public void printData(Car[] array) {
+        for (Car car : array) {
+            if (car != null) {
+                System.out.println(car.toString());
             }
         }
     }
 
-
-    public Book[] getByFromYear(int year) {
+    public Car[] getByFromYearIssue(int year, int price) {
         int countFoundData = 0;
-        Book[] foundData = new Book[bookData.length];
-        for (Book book : bookData) {
-            if (book.getDate().getYear() < year) {
-                foundData[countFoundData++] = book;
-            }
-        }
-        return foundData;
-    }
-
-    public Book[] getByAuthor(String author) {
-        int countFoundData = 0;
-        Book[] foundData = new Book[bookData.length];
-        for (Book book : bookData) {
-            if (book.getAuthor().equals(author)) {
-                foundData[countFoundData++] = book;
+        Car[] foundData = new Car[carData.length];
+        for (Car car : carData) {
+            if (car.getYearOfIssue().getYear() == year && car.getPrice() > price) {
+                foundData[countFoundData++] = car;
             }
         }
         return foundData;
     }
 
-    public Book[] getByNamePublisher(String namePublisher) {
+    public Car[] getByBrand(String brand) {
         int countFoundData = 0;
-        Book[] foundData = new Book[bookData.length];
-        for (Book book : bookData) {
-            if (book.getNamePublisher().equals(namePublisher)) {
-                foundData[countFoundData++] = book;
+        Car[] foundData = new Car[carData.length];
+        for (Car car : carData) {
+            if (car.getBrand().equals(brand)) {
+                foundData[countFoundData++] = car;
+            }
+        }
+        return foundData;
+    }
+
+    public Car[] getByModelAndOperatedYear(String model, int operatedYear) {
+        int countFoundData = 0;
+        Car[] foundData = new Car[carData.length];
+        for (Car car : carData) {
+            if (car.getModel().equals(model) && car.getOperatedYear() > operatedYear) {
+                foundData[countFoundData++] = car;
             }
         }
         return foundData;
