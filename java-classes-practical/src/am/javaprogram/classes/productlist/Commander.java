@@ -41,7 +41,6 @@ public class Commander implements Commands {
         run();
     }
 
-
     private void filteringByNameProcess() {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();

@@ -3,6 +3,8 @@ package am.javaprogram.classes.productlist.servicess;
 import am.javaprogram.classes.productlist.ProductGenerator;
 import am.javaprogram.classes.productlist.models.Product;
 
+import java.time.LocalDate;
+
 public class ProductService {
     private Product[] productData = new Product[10];
 
@@ -21,14 +23,13 @@ public class ProductService {
         }
     }
 
-
     public Product[] getByPrice(int price) {
         int countFoundData = 0;
         Product[] foundData = new Product[productData.length];
         for (Product product : productData) {
-             if(product.getPrice() < price){
-                 foundData[countFoundData++] =product;
-             }
+            if (product.getPrice() < price) {
+                foundData[countFoundData++] = product;
+            }
         }
         return foundData;
     }
@@ -37,17 +38,22 @@ public class ProductService {
         int countFoundData = 0;
         Product[] foundData = new Product[productData.length];
         for (Product product : productData) {
-            if(product.getName().equals(name)){
-                foundData[countFoundData++] =product;
+            if (product.getName().equals(name)) {
+                foundData[countFoundData++] = product;
             }
         }
         return foundData;
     }
 
-    public Product[] getByMoreGuaranty() {
+    public Product[] getByMoreGuaranty(String date) {
+        LocalDate d = LocalDate.parse(date);
         int countFoundData = 0;
         Product[] foundData = new Product[productData.length];
-
+        for (Product product : productData) {
+            if (product.getGuarantyDate().isBefore(d)) {
+                foundData[countFoundData++] = product;
+            }
+        }
         return foundData;
     }
 }
