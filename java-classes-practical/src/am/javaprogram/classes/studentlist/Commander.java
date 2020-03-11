@@ -1,6 +1,6 @@
 package am.javaprogram.classes.studentlist;
 
-import am.javaprogram.classes.studentlist.interfaces.Commands;
+import am.javaprogram.classes.studentlist.constcommands.Commands;
 import am.javaprogram.classes.studentlist.models.Student;
 import am.javaprogram.classes.studentlist.services.StudentService;
 

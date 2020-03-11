@@ -2,7 +2,7 @@ package am.javaprogram.classes.patient;
 
 import am.javaprogram.classes.patient.models.Patient;
 import am.javaprogram.classes.patient.services.PatientService;
-import am.javaprogram.classes.patient.interfaces.Commands;
+import am.javaprogram.classes.patient.constcommands.Commands;
 
 import java.util.Scanner;
 

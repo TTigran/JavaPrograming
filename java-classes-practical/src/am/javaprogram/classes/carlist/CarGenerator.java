@@ -1,28 +1,34 @@
 package am.javaprogram.classes.carlist;
 
-import am.javaprogram.classes.booklist.models.Book;
-import am.javaprogram.classes.customer.models.Customer;
+import am.javaprogram.classes.carlist.models.Car;
 
 import java.util.Random;
 
-public class BookGenerator {
-    private final String[] NAMES_PUBLISHER = {
-            "Tigran", "Vardan", "Ashot", "Vahram", "Valod", "Gurgen", "Ishxan", "Varazdat", "Gevorg"
-    };
-    private final String[] NAMES_AUTHOR = {
-            "Hovhannes Tumanyan", "Hovhannes Shiraz", "Raffi"
+public class CarGenerator {
+    private final String[] BRANDS = {
+            "Mercedes", "BMW", "Toyota", "Lexus",
     };
 
-    public BookGenerator() {
+    private final String[][] BRANDS_MODEL = {
+            {"A-class", "CLA", "CLS"},
+            {"X1", "X3", "X5"},
+            {"Avalon", "Camry", "Corolla"},
+            {"LS", "SC", "RC"}
+    };
+
+    public CarGenerator() {
 
     }
 
-    public Book generateBook() {
-        Book generate =
-                new Book(
-                        NAMES_AUTHOR[getRangeByMinMax(0, NAMES_AUTHOR.length - 1)],
-                        NAMES_PUBLISHER[getRangeByMinMax(0, NAMES_PUBLISHER.length - 1)],
-                        getRangeByMinMax(1994, 2000) + "-02-13");
+    public Car generateCar() {
+        int index = getRangeByMinMax(0, BRANDS.length);
+        Car generate = new Car(
+                BRANDS[index],
+                BRANDS_MODEL[index][getRangeByMinMax(0, 2)],
+                getRangeByMinMax(1994, 2000) + "-02-13",
+                getRangeByMinMax(1,9),
+                getRangeByMinMax(10000,100000)
+                );
         return generate;
     }
 
@@ -30,5 +36,4 @@ public class BookGenerator {
         Random r = new Random();
         return r.nextInt((max - min) + 1) + min;
     }
-
 }

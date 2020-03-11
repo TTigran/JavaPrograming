@@ -1,16 +1,13 @@
-package am.javaprogram.classes.booklist;
+package am.javaprogram.classes.carlist;
 
-import am.javaprogram.classes.booklist.interfaces.Commands;
-import am.javaprogram.classes.booklist.models.Book;
-import am.javaprogram.classes.booklist.servicess.BookService;
-import am.javaprogram.classes.customer.models.Customer;
-import am.javaprogram.classes.studentlist.models.Student;
-import am.javaprogram.classes.studentlist.services.StudentService;
+import am.javaprogram.classes.carlist.constcommands.Commands;
+import am.javaprogram.classes.carlist.models.Car;
+import am.javaprogram.classes.carlist.servicess.CarService;
 
 import java.util.Scanner;
 
 public class Commander implements Commands {
-    BookService bookService = new BookService();
+    CarService carService = new CarService();
 
     public void run() {
         Scanner scanner = new Scanner(System.in);
@@ -20,14 +17,14 @@ public class Commander implements Commands {
             case EXIT:
                 scanner.close();
                 break;
-            case FILTER_BY_NAME_PUBLISHER:
-                filteringByNamePublisherProcess();
+            case FILTER_BY_BRAND:
+                processFilterByBrand();
                 break;
-            case FILTER_BY_AUTHOR:
-                filteringByAuthorProcess();
+            case FILTER_BY_MODEL_AND_OPERATED_MORE_YEAR:
+                processFilterByModelAndMoreOperatedYear();
                 break;
-            case FILTER_BY_FROM_YEAR:
-                filteringByFromYearProcess();
+            case FILTER_BY_YEAR_OF_ISSUE_AND_MORE_PRICE:
+                processFilterByYearIssueAndMorePrice();
                 break;
             default:
                 run();
@@ -35,41 +32,39 @@ public class Commander implements Commands {
         }
     }
 
-    private void filteringByNamePublisherProcess() {
+    private void processFilterByBrand() {
         Scanner scanner = new Scanner(System.in);
-        String namePublisher = scanner.nextLine();
-        Book[] result = bookService.getByNamePublisher(namePublisher);
-        bookService.printData(result);
-        run();
-    }
-
-    private void filteringByAuthorProcess() {
-        Scanner scanner = new Scanner(System.in);
-        String author = scanner.nextLine();
-        Book[] result = bookService.getByNamePublisher(author);
-        bookService.printData(result);
-        run();
-    }
-
-    private void filteringByFromYearProcess() {
-        Scanner scanner = new Scanner(System.in);
-        int year = scanner.nextInt();
-        if (year < 2002) {
-            Book[] result = bookService.getByFromYear(year);
-            bookService.printData(result);
-        } else {
-            System.out.println(year+" is not allowed: Please try again");
-            filteringByFromYearProcess();
-        }
+        String brand = scanner.nextLine();
+        Car[] byBrand = carService.getByBrand(brand);
+        carService.printData(byBrand);
         scanner.close();
         run();
     }
 
+    private void processFilterByYearIssueAndMorePrice() {
+        Scanner scanner = new Scanner(System.in);
+        int year = scanner.nextInt();
+        int price = scanner.nextInt();
+        Car[] byFromYearIssue = carService.getByFromYearIssue(year, price);
+        carService.printData(byFromYearIssue);
+        scanner.close();
+        run();
+    }
+
+    private void processFilterByModelAndMoreOperatedYear() {
+        Scanner scanner = new Scanner(System.in);
+        String model = scanner.nextLine();
+        int operatedYear = scanner.nextInt();
+        Car[] byModelAndOperatedYear = carService.getByModelAndOperatedYear(model, operatedYear);
+        carService.printData(byModelAndOperatedYear);
+        scanner.close();
+        run();
+    }
 
     private void printCommands() {
-        System.out.println("EXIT ----------------------------------------------------------------> 0");
-        System.out.println("FILTER_BY_NAME_PUBLISHER --------------------------------------------> 1");
-        System.out.println("FILTER_BY_AUTHOR ----------------------------------------------------> 2");
-        System.out.println("FILTER_BY_FROM_YEAR -------------------------------------------------> 3");
+        System.out.println("EXIT -------------------------------------------------------> 0");
+        System.out.println("FILTER_BY_BRAND --------------------------------------------> 1");
+        System.out.println("FILTER_BY_MODEL_AND_OPERATED_MORE_YEAR ---------------------> 2");
+        System.out.println("FILTER_BY_YEAR_OF_ISSUE_AND_MORE_PRICE ---------------------> 3");
     }
 }

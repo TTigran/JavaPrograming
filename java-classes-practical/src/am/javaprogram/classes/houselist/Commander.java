@@ -1,6 +1,6 @@
 package am.javaprogram.classes.houselist;
 
-import am.javaprogram.classes.houselist.interfaces.Commands;
+import am.javaprogram.classes.houselist.constcommands.Commands;
 import am.javaprogram.classes.houselist.models.House;
 import am.javaprogram.classes.houselist.servicess.HouseService;
 

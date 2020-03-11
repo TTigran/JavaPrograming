@@ -2,7 +2,7 @@ package am.javaprogram.classes.customer;
 
 import am.javaprogram.classes.customer.models.Customer;
 import am.javaprogram.classes.customer.sevices.CustomerService;
-import am.javaprogram.classes.customer.interfaces.Commands;
+import am.javaprogram.classes.customer.constcommands.Commands;
 
 import java.util.Scanner;
 

@@ -1,6 +1,6 @@
 package am.javaprogram.classes.booklist;
 
-import am.javaprogram.classes.booklist.interfaces.Commands;
+import am.javaprogram.classes.booklist.constcommands.Commands;
 import am.javaprogram.classes.booklist.models.House;
 import am.javaprogram.classes.booklist.servicess.BookService;
 
