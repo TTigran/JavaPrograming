@@ -1,6 +1,6 @@
 package am.javaprogram.classes.carlist;
 
-import am.javaprogram.classes.carlist.interfaces.Commands;
+import am.javaprogram.classes.carlist.constcommands.Commands;
 import am.javaprogram.classes.carlist.models.Car;
 import am.javaprogram.classes.carlist.servicess.CarService;
 

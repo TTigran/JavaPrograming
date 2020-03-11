@@ -1,4 +1,4 @@
-package am.javaprogram.classes.houselist.interfaces;
+package am.javaprogram.classes.houselist.constcommands;
 
 public interface Commands {
     int EXIT = 0;

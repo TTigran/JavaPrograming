@@ -1,4 +1,4 @@
-package am.javaprogram.classes.studentlist.interfaces;
+package am.javaprogram.classes.studentlist.constcommands;
 
 public interface Commands {
     int EXIT = 0;

@@ -1,4 +1,4 @@
-package am.javaprogram.classes.carlist.interfaces;
+package am.javaprogram.classes.carlist.constcommands;
 
 public interface Commands {
     int EXIT = 0;

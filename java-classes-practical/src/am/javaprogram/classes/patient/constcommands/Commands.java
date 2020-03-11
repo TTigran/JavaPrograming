@@ -1,4 +1,4 @@
-package am.javaprogram.classes.patient.interfaces;
+package am.javaprogram.classes.patient.constcommands;
 
 public interface Commands {
     int EXIT = 0;
