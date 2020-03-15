@@ -1,4 +1,4 @@
-package am.javaprogram;
+package am.javaprogram.sImpledynamicarray;
 
 import java.util.Arrays;
 
@@ -7,14 +7,25 @@ public class DynamicList {
     private int array[];
     private int size;
 
+    public DynamicList(int... arrayOfArguments) {
+        this.array = Arrays.copyOf(arrayOfArguments, arrayOfArguments.length + 2);
+        this.size = arrayOfArguments.length;
+    }
+
+    public DynamicList() {
+        this.array = new int[DEFAULT_SIZE_OF_ARRAY];
+        this.size = 0;
+    }
+
+    public DynamicList(int length) {
+        this.array = new int[length];
+        this.size = 0;
+    }
+
     private void ensureSize() {
         if (size + 2 == array.length) {
             array = Arrays.copyOf(array, array.length + 2);
         }
-    }
-
-    public int[] getArray() {
-        return array;
     }
 
     public void setArray(int[] array) {
@@ -25,10 +36,20 @@ public class DynamicList {
         return size;
     }
 
+    public int indexOf(int element) {
+        int i;
+        for (i = 0; i < array.length; i++) {
+            if (array[i] == element) {
+                break;
+            }
+        }
+        return i;
+    }
+
     public int[] removeById(int index) {
         for (int i = 0; i < array.length; i++) {
             if (i > index) {
-                array[i-1] = array[i];
+                array[i - 1] = array[i];
             }
         }
         size--;
@@ -38,7 +59,7 @@ public class DynamicList {
 
     public void removeByElement(int element) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] > element) {
+            if (array[i] == element) {
                 removeById(i);
             }
         }
@@ -46,7 +67,7 @@ public class DynamicList {
         System.out.println("size " + size);
     }
 
-    public  void addById( int element, int index) {
+    public void addById(int element, int index) {
         int[] result = new int[array.length + 1];
         for (int i = 0, j = 0; i < array.length; i++, j++) {
             if (i == index) {
@@ -61,7 +82,7 @@ public class DynamicList {
 
     public void add(int element) {
         ensureSize();
-        array[size++]= element;
+        array[size++] = element;
     }
 
     public void sort() {
@@ -69,18 +90,18 @@ public class DynamicList {
         int temp;
         for (int i = 0; i < arrayLength; i++) {
             for (int j = 1; j < (arrayLength - i); j++) {
-                if (array[j - 1]> array[j]) {
+                if (array[j - 1] > array[j]) {
                     temp = array[j - 1];
-                    array[j - 1]= array[j];
-                    array[j]= temp;
+                    array[j - 1] = array[j];
+                    array[j] = temp;
                 }
             }
         }
     }
 
-    public void printArray(){
-        for (int i = 0; i <array.length ; i++) {
-            System.out.print(array[i]+" ");
+    public void printArray() {
+        for (int i = 0; i < array.length; i++) {
+            System.out.print(array[i] + " ");
         }
     }
 }
