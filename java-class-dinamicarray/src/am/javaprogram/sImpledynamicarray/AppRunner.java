@@ -10,7 +10,7 @@ public class AppRunner {
         dynamicList.add(5);
         dynamicList.add(6);
         dynamicList.addById(2,2);
-        System.out.println(dynamicList.indexOf(6));
+        System.out.println(dynamicList.indexOf(7));
 
     }
 }

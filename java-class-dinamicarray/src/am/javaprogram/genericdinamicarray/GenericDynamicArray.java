@@ -18,8 +18,6 @@ public class GenericDynamicArray <T> {
         this.array = a;
     }
 
-
-
     private void ensureSize() {
         if (size + 2 == array.length) {
             array = Arrays.copyOf(array, array.length + 2);
@@ -35,13 +33,12 @@ public class GenericDynamicArray <T> {
     }
 
     public int indexOf(T element) {
-        int i;
-        for (i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i++) {
             if (array[i].equals(element)) {
-                break;
+                return i;
             }
         }
-        return i;
+        return -1;
     }
 
     public T[] removeById(int index) {

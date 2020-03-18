@@ -40,10 +40,10 @@ public class DynamicList {
         int i;
         for (i = 0; i < array.length; i++) {
             if (array[i] == element) {
-                break;
+                return i;
             }
         }
-        return i;
+        return -1;
     }
 
     public int[] removeById(int index) {
