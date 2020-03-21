@@ -9,12 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AirlineServiceImpl implements AirlineService {
-    private DataGenerator dataGenerator;
+
     private Airline airline;
 
-    public AirlineServiceImpl() {
-        dataGenerator = new DataGenerator();
-        airline = dataGenerator.getAirline();
+    public AirlineServiceImpl(DataGenerator generator) {
+        airline = generator.getAirline();
     }
 
     @Override
@@ -40,7 +39,7 @@ public class AirlineServiceImpl implements AirlineService {
         List<Airplane> resultList = new ArrayList<>();
         List<Airplane> airplanes = airline.getAirplanes();
         for (Airplane airplane : airplanes) {
-            if (airplane.getSeats() > seats) {
+            if (airplane.getSeats() > seats && airplane.getCapacity()>capacity) {
                 resultList.add(airplane);
             }
         }

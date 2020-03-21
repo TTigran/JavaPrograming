@@ -9,7 +9,8 @@ import java.util.List;
 
 public class AppRunner {
     public static void main(String[] args) {
-        AirlineServiceImpl airlineService = new AirlineServiceImpl();
+        DataGenerator dataGenerator =new DataGenerator();
+        AirlineServiceImpl airlineService = new AirlineServiceImpl(dataGenerator);
 
         System.out.println("This airline support " + airlineService.overallSeats() + " seats");
         System.out.println("This airline support " + airlineService.overallCapacity() + " capacity");
