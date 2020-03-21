@@ -8,9 +8,9 @@ import java.util.List;
 
 public interface AirlineService {
 
-    int overallSeats(Airline airline);
+    int overallSeats();
 
-    double overallCapacity(Airline airline);
+    double overallCapacity();
 
-    List<Airplane> getAirplaneByParameters(Airline airline, double capacity, int seats);
+    List<Airplane> getAirplaneByParameters( double capacity, int seats);
 }

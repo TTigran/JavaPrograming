@@ -1,112 +1,75 @@
 package am.javaprogram.airline.service;
 
 import am.javaprogram.airline.airvehicles.Airplane;
-import am.javaprogram.airline.airvehicles.Helicopter;
-import am.javaprogram.airline.airvehicles.QuadCopter;
 import am.javaprogram.airline.airvehicles.base.AirTransport;
 import am.javaprogram.airline.company.Airline;
+import am.javaprogram.airline.datagenerator.DataGenerator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AirlineServiceImpl implements AirlineService {
+    private DataGenerator dataGenerator;
+    private Airline airline;
 
-    public AirlineServiceImpl() { }
+    public AirlineServiceImpl() {
+        dataGenerator = new DataGenerator();
+        airline = dataGenerator.getAirline();
+    }
 
     @Override
-    public int overallSeats(Airline airline) {
-        int allSeats = getSeatsAirplanesOf(airline) + getSeatsHelicoptersOf(airline) + getSeatsQuadCoptersOf(airline);
+    public int overallSeats() {
+        int allSeats =
+                getSeats(airline.getAirplanes()) +
+                getSeats(airline.getHelicopters()) +
+                getSeats(airline.getQuadCopters());
         return allSeats;
-     }
+    }
 
     @Override
-    public double overallCapacity(Airline airline) {
-        double allCapacity = getCapacityAirplanesOf(airline) + getCapacityHelicoptersOf(airline) + getCapacityQuadCoptersOf(airline);
+    public double overallCapacity() {
+        double allCapacity =
+                getCapacity(airline.getAirplanes()) +
+                getCapacity(airline.getHelicopters()) +
+                getCapacity(airline.getQuadCopters());
         return allCapacity;
     }
 
     @Override
-    public List<Airplane> getAirplaneByParameters(Airline airline , double capacity, int seats) {
+    public List<Airplane> getAirplaneByParameters(double capacity, int seats) {
         List<Airplane> resultList = new ArrayList<>();
         List<Airplane> airplanes = airline.getAirplanes();
         for (Airplane airplane : airplanes) {
-            if(airplane.getSeats()>seats){
+            if (airplane.getSeats() > seats) {
                 resultList.add(airplane);
             }
         }
         return resultList;
     }
 
-    public void printFilteredAirplane(List<? extends AirTransport> list){
-        for (AirTransport items: list){
+    public void printFilteredAirplane(List<? extends AirTransport> list) {
+        for (AirTransport items : list) {
             System.out.println(items.getSeats());
         }
     }
 
-    private int getSeatsAirplanesOf(Airline airline) {
+    private int getSeats(List<? extends AirTransport> list) {
         int result = 0;
-        List<Airplane> airplanes = airline.getAirplanes();
-        for (Airplane airplane : airplanes) {
-            if (airplane != null) {
-                result += airplane.getSeats();
+        for (AirTransport item : list) {
+            if (item != null) {
+                result += item.getSeats();
             }
         }
         return result;
     }
 
-    private int getSeatsHelicoptersOf(Airline airline) {
-        int result = 0;
-        List<Helicopter> helicopters = airline.getHelicopters();
-        for (Helicopter helicopter : helicopters) {
-            if (helicopter != null) {
-                result += helicopter.getSeats();
-            }
-        }
-        return result;
-    }
-
-    private int getSeatsQuadCoptersOf(Airline airline) {
-        int result = 0;
-        List<QuadCopter> quadCopters = airline.getQuadCopters();
-        for (QuadCopter quadCopter : quadCopters) {
-            if (quadCopter != null) {
-                result += quadCopter.getSeats();
-            }
-        }
-        return result;
-    }
-
-    private double getCapacityAirplanesOf(Airline airline) {
+    private double getCapacity(List<? extends AirTransport> list) {
         double result = 0;
-        List<Airplane> airplanes = airline.getAirplanes();
-        for (Airplane airplane : airplanes) {
-            if (airplane != null) {
-                result += airplane.getCapacity();
+        for (AirTransport item : list) {
+            if (item != null) {
+                result += item.getCapacity();
             }
         }
         return result;
     }
-
-    private double getCapacityHelicoptersOf(Airline airline) {
-        double result = 0;
-        List<Helicopter> helicopters = airline.getHelicopters();
-        for (Helicopter helicopter : helicopters) {
-            if (helicopter != null) {
-                result += helicopter.getCapacity();
-            }
-        }
-        return result;
-    }
-
-    private double getCapacityQuadCoptersOf(Airline airline) {
-        double result = 0;
-        List<QuadCopter> quadCopters = airline.getQuadCopters();
-        for (QuadCopter quadCopter : quadCopters) {
-            if (quadCopter != null) {
-                result += quadCopter.getCapacity();
-            }
-        }
-        return result;
-    }
-
 }
