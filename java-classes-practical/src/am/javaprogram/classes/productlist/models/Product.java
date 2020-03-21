@@ -15,11 +15,11 @@ public class Product {
 
     public Product() { }
 
-    public Product( String name, int price, LocalDate guarantyDate) {
+    public Product( String name, int price, String guarantyDate) {
         this.id = noOfObjects;
         this.name = name;
         this.price = price;
-        this.guarantyDate = guarantyDate;
+        this.guarantyDate = LocalDate.parse(guarantyDate);
     }
 
     public int getId() {
