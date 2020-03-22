@@ -11,7 +11,7 @@ public class AppRunner {
         DataGenerator dataGenerator = new DataGenerator();
         TransportParkServiceImpl transportParkService = new TransportParkServiceImpl(dataGenerator);
 
-        System.out.println("This TransportPar support " + transportParkService.calculateValue() + " $");
+        System.out.println("This TransportPar support " + transportParkService.calculatePriceAllTransportPark() + " $");
         transportParkService.sort();
 
         List<Bus> airplaneByParameters = transportParkService.getBusByParameters(3000, 160);

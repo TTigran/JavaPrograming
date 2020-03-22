@@ -4,13 +4,13 @@ public class Transport {
     protected String type;
     protected int serialNumber;
     protected double fuelConsumption;
-    protected int value;
+    protected int price;
 
-    public Transport(String type,int serialNumber, double fuelConsumption, int value) {
+    public Transport(String type,int serialNumber, double fuelConsumption, int price) {
         this.serialNumber = serialNumber;
         this.fuelConsumption = fuelConsumption;
         this.type =type;
-        this.value = value;
+        this.price = price;
     }
 
     public String getType() {
@@ -37,11 +37,11 @@ public class Transport {
         this.fuelConsumption = fuelConsumption;
     }
 
-    public int getValue() {
-        return value;
+    public int getPrice() {
+        return price;
     }
 
-    public void setValue(int value) {
-        this.value = value;
+    public void setPrice(int price) {
+        this.price = price;
     }
 }

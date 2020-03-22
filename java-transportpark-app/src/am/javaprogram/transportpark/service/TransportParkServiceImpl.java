@@ -2,7 +2,7 @@ package am.javaprogram.transportpark.service;
 
 import am.javaprogram.transportpark.company.TransportPark;
 import am.javaprogram.transportpark.datagenerator.DataGenerator;
-import am.javaprogram.transportpark.service.compare.FuelConsumptionSorter;
+import am.javaprogram.transportpark.service.compare.FuelComparator;
 import am.javaprogram.transportpark.transportparkvehicles.Bus;
 import am.javaprogram.transportpark.transportparkvehicles.base.Transport;
 
@@ -18,7 +18,7 @@ public class TransportParkServiceImpl implements TransportParkService {
     }
 
     @Override
-    public int calculateValue() {
+    public int calculatePriceAllTransportPark() {
         int allValue =
                 getValue(transportPark.getTaxis()) +
                         getValue(transportPark.getBuses()) +
@@ -29,7 +29,7 @@ public class TransportParkServiceImpl implements TransportParkService {
     @Override
     public void sort() {
         List<Bus> buses = transportPark.getBuses();
-        buses.sort(new FuelConsumptionSorter());
+        buses.sort(new FuelComparator());
     }
 
     @Override
@@ -37,7 +37,7 @@ public class TransportParkServiceImpl implements TransportParkService {
         List<Bus> resultList = new ArrayList<>();
         List<Bus> buses = transportPark.getBuses();
         for (Bus airplane : buses) {
-            if (airplane.getValue() > value && airplane.getFuelConsumption() > fuelConsumption) {
+            if (airplane.getPrice() > value && airplane.getFuelConsumption() > fuelConsumption) {
                 resultList.add(airplane);
             }
         }
@@ -54,7 +54,7 @@ public class TransportParkServiceImpl implements TransportParkService {
         int result = 0;
         for (Transport item : list) {
             if (item != null) {
-                result += item.getValue();
+                result += item.getPrice();
             }
         }
         return result;

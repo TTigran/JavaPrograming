@@ -27,16 +27,16 @@ public class DataGenerator {
                     getRangeByMinMax(1000,9000));
         }
     }
-    private void generateTaxi(int serialNumber, double fuelConsumption,int value) {
-        transportPark.getTaxis().add(new Taxi(serialNumber, fuelConsumption,value));
+    private void generateTaxi(int serialNumber, double fuelConsumption,int price) {
+        transportPark.getTaxis().add(new Taxi(serialNumber, fuelConsumption,price));
     }
 
-    private void generateBus(int serialNumber,  double fuelConsumption,int value) {
-        transportPark.getBuses().add(new Bus(serialNumber, fuelConsumption,value));
+    private void generateBus(int serialNumber,  double fuelConsumption,int price) {
+        transportPark.getBuses().add(new Bus(serialNumber, fuelConsumption,price));
     }
 
-    private void generateMicroBus(int serialNumber,  double fuelConsumption,int value) {
-        transportPark.getMicroBuses().add(new MicroBus(serialNumber, fuelConsumption,value));
+    private void generateMicroBus(int serialNumber,  double fuelConsumption,int price) {
+        transportPark.getMicroBuses().add(new MicroBus(serialNumber, fuelConsumption,price));
     }
 
     private int getRangeByMinMax(int min, int max) {
