@@ -5,7 +5,7 @@ import am.javaprogram.transportpark.transportparkvehicles.base.Transport;
 public class Taxi  extends Transport {
     public static final String TYPE ="Bus";
 
-    public Taxi(int serialNumber, double fuelConsumption) {
-        super(TYPE,serialNumber,fuelConsumption);
+    public Taxi(int serialNumber, double fuelConsumption,int value) {
+        super(TYPE,serialNumber,fuelConsumption,value);
     }
 }
