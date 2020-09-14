@@ -77,7 +77,7 @@ public class GeometricFigure {
 
         System.out.println("------------------------------------");
 
-        for (int i = 0; i < 2*size-1 ; i++) {
+        for (int i = 0; i < 2 * size - 1; i++) {
             if (i < size) {
                 for (int j = 0; j < size - i - 1; j++) {
                     System.out.print("  ");
@@ -97,5 +97,75 @@ public class GeometricFigure {
 
             System.out.println();
         }
+
+        System.out.println("------------------------------------");
+
+        for (int i = 1; i <= size; i++) {
+            for (int j = 1; j <= size; j++) {
+                if (i == 1 || i == size){
+                    System.out.print("*  ");
+                } else if (j == 1 || j == size){
+                    System.out.print("*  ");
+                }else{
+                    System.out.print("   ");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("------------------------------------");
+
+        for (int i = 1; i <= size; i++) {
+            for (int j = 1; j <= size; j++) {
+                if (i == 1 || i == size){
+                    System.out.print("*  ");
+                } else if (j == 1 || j == size){
+                    System.out.print("*  ");
+                } else if(j== size/2+1 || i== size/2+1){
+                    System.out.print("*  ");
+                } else{
+                    System.out.print("   ");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("------------------------------------");
+
+        for (int i = 1; i <= size; i++) {
+            for (int j = 1; j <= size; j++) {
+                if (i == 1 || i == size){
+                    System.out.print("*  ");
+                } else if (j == 1 || j == size){
+                    System.out.print("*  ");
+                }else if(j == i){
+                    System.out.print("*  ");
+                } else if(j == size-i+1){
+                    System.out.print("*  ");
+                }  else{
+                    System.out.print("   ");
+                }
+            }
+            System.out.println();
+        }
+
+        System.out.println("------------------------------------");
+
+        for (int i = 1; i <= size; i++) {
+            for (int j = 1; j <= size; j++) {
+                if(j == i){
+                    System.out.print("*  ");
+                }else if(j== size/2+1 || i== size/2+1){
+                    System.out.print("*  ");
+                }else if(j == size-i+1){
+                    System.out.print("*  ");
+                }   else{
+                    System.out.print("   ");
+                }
+            }
+            System.out.println();
+        }
+
+
     }
 }
