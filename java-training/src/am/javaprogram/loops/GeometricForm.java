@@ -48,7 +48,6 @@ public class GeometricForm {
             System.out.println();
         }
 
-
         System.out.println("------------------------------------");
 
         for (int i = 0; i < size; i++) {
@@ -78,7 +77,7 @@ public class GeometricForm {
 
         System.out.println("------------------------------------");
 
-        for (int i = 0; i < size + 4; i++) {
+        for (int i = 0; i < 2*size-1 ; i++) {
             if (i < size) {
                 for (int j = 0; j < size - i - 1; j++) {
                     System.out.print("  ");
