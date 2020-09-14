@@ -1,6 +1,6 @@
 package am.javaprogram.loops;
 
-public class GeometricForm {
+public class GeometricFigure {
     public static void main(String[] args) {
         int size = 5;
 
