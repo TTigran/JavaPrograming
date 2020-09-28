@@ -166,6 +166,5 @@ public class GeometricFigure {
             System.out.println();
         }
 
-
     }
 }
